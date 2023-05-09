@@ -60,10 +60,10 @@ status_reply_dict = {}
 download_dict = {}
 rss_dict = {}
 
-BOT_TOKEN = environ.get('BOT_TOKEN', '5407418388:AAHxRe8U3VJlzuNPlB-Xc7w94zuoWeYDrxE')
+BOT_TOKEN = environ.get('BOT_TOKEN', '')
 if len(BOT_TOKEN) == 0:
-    BOT_TOKEN = '5407418388:AAHxRe8U3VJlzuNPlB-Xc7w94zuoWeYDrxE'
-    
+    log_error("BOT_TOKEN variable is missing! Exiting now")
+    exit(1)
 
 bot_id = BOT_TOKEN.split(':', 1)[0]
 
@@ -108,28 +108,28 @@ if DATABASE_URL:
 else:
     config_dict = {}
 
-OWNER_ID = environ.get('OWNER_ID', '5575546796')
+OWNER_ID = environ.get('OWNER_ID', '')
 if len(OWNER_ID) == 0:
-    OWNER_ID = 5575546796
-    
+    log_error("OWNER_ID variable is missing! Exiting now")
+    exit(1)
 else:
     OWNER_ID = int(OWNER_ID)
 
-TELEGRAM_API = environ.get('TELEGRAM_API', '2066194')
+TELEGRAM_API = environ.get('TELEGRAM_API', '')
 if len(TELEGRAM_API) == 0:
-    TELEGRAM_API = 2066194
-    
+    log_error("TELEGRAM_API variable is missing! Exiting now")
+    exit(1)
 else:
     TELEGRAM_API = int(TELEGRAM_API)
 
-TELEGRAM_HASH = environ.get('TELEGRAM_HASH', 'bdf15de62f1ea11b1279dd4974b0e706')
+TELEGRAM_HASH = environ.get('TELEGRAM_HASH', '')
 if len(TELEGRAM_HASH) == 0:
-    TELEGRAM_HASH = 'bdf15de62f1ea11b1279dd4974b0e706'
-    
+    log_error("TELEGRAM_HASH variable is missing! Exiting now")
+    exit(1)
 
-GDRIVE_ID = environ.get('GDRIVE_ID', '0AAggwpDduTcTUk9PVA')
+GDRIVE_ID = environ.get('GDRIVE_ID', '')
 if len(GDRIVE_ID) == 0:
-    GDRIVE_ID = '0AAggwpDduTcTUk9PVA'
+    GDRIVE_ID = ''
 
 RCLONE_PATH = environ.get('RCLONE_PATH', '')
 if len(RCLONE_PATH) == 0:
@@ -149,7 +149,7 @@ if len(DOWNLOAD_DIR) == 0:
 elif not DOWNLOAD_DIR.endswith("/"):
     DOWNLOAD_DIR = f'{DOWNLOAD_DIR}/'
 
-AUTHORIZED_CHATS = environ.get('AUTHORIZED_CHATS', '-1001247689862')
+AUTHORIZED_CHATS = environ.get('AUTHORIZED_CHATS', '')
 if len(AUTHORIZED_CHATS) != 0:
     aid = AUTHORIZED_CHATS.split()
     for id_ in aid:
@@ -189,9 +189,9 @@ UPTOBOX_TOKEN = environ.get('UPTOBOX_TOKEN', '')
 if len(UPTOBOX_TOKEN) == 0:
     UPTOBOX_TOKEN = ''
 
-INDEX_URL = environ.get('INDEX_URL', 'https://shigagagaga.shigarakitomura.workers.dev/0:/').rstrip("/")
+INDEX_URL = environ.get('INDEX_URL', '').rstrip("/")
 if len(INDEX_URL) == 0:
-    INDEX_URL = 'https://shigagagaga.shigarakitomura.workers.dev/0:/'
+    INDEX_URL = ''
 
 SEARCH_API_LINK = environ.get('SEARCH_API_LINK', '').rstrip("/")
 if len(SEARCH_API_LINK) == 0:
@@ -264,18 +264,16 @@ INCOMPLETE_TASK_NOTIFIER = INCOMPLETE_TASK_NOTIFIER.lower() == 'true'
 STOP_DUPLICATE = environ.get('STOP_DUPLICATE', '')
 STOP_DUPLICATE = STOP_DUPLICATE.lower() == 'true'
 
-IS_TEAM_DRIVE = environ.get('IS_TEAM_DRIVE', 'true')
+IS_TEAM_DRIVE = environ.get('IS_TEAM_DRIVE', '')
 IS_TEAM_DRIVE = IS_TEAM_DRIVE.lower() == 'true'
 
-USE_SERVICE_ACCOUNTS = environ.get('USE_SERVICE_ACCOUNTS', 'true')
+USE_SERVICE_ACCOUNTS = environ.get('USE_SERVICE_ACCOUNTS', '')
 USE_SERVICE_ACCOUNTS = USE_SERVICE_ACCOUNTS.lower() == 'true'
 
 WEB_PINCODE = environ.get('WEB_PINCODE', '')
 WEB_PINCODE = WEB_PINCODE.lower() == 'true'
 
-AS_DOCUMENT = environ.get('AS_DOCUMENT', 'true')
-if len(AS_DOCUMENT) == 0 :
-    AS_DOCUMENT = 'true' 
+AS_DOCUMENT = environ.get('AS_DOCUMENT', '')
 AS_DOCUMENT = AS_DOCUMENT.lower() == 'true'
 
 EQUAL_SPLITS = environ.get('EQUAL_SPLITS', '')
