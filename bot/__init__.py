@@ -63,8 +63,7 @@ rss_dict = {}
 BOT_TOKEN = environ.get('BOT_TOKEN', '5407418388:AAHxRe8U3VJlzuNPlB-Xc7w94zuoWeYDrxE')
 if len(BOT_TOKEN) == 0:
     BOT_TOKEN = '5407418388:AAHxRe8U3VJlzuNPlB-Xc7w94zuoWeYDrxE'
-    log_error("BOT_TOKEN variable is missing! Exiting now")
-    exit(1)
+    
 
 bot_id = BOT_TOKEN.split(':', 1)[0]
 
@@ -112,24 +111,21 @@ else:
 OWNER_ID = environ.get('OWNER_ID', '5575546796')
 if len(OWNER_ID) == 0:
     OWNER_ID = 5575546796
-    log_error("OWNER_ID variable is missing! Exiting now")
-    exit(1)
+    
 else:
     OWNER_ID = int(OWNER_ID)
 
 TELEGRAM_API = environ.get('TELEGRAM_API', '2066194')
 if len(TELEGRAM_API) == 0:
     TELEGRAM_API = 2066194
-    log_error("TELEGRAM_API variable is missing! Exiting now")
-    exit(1)
+    
 else:
     TELEGRAM_API = int(TELEGRAM_API)
 
 TELEGRAM_HASH = environ.get('TELEGRAM_HASH', 'bdf15de62f1ea11b1279dd4974b0e706')
 if len(TELEGRAM_HASH) == 0:
     TELEGRAM_HASH = 'bdf15de62f1ea11b1279dd4974b0e706'
-    log_error("TELEGRAM_HASH variable is missing! Exiting now")
-    exit(1)
+    
 
 GDRIVE_ID = environ.get('GDRIVE_ID', '0AAggwpDduTcTUk9PVA')
 if len(GDRIVE_ID) == 0:
